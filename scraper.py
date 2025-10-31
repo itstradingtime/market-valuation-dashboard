@@ -4,6 +4,15 @@ from io import StringIO
 
 URL = "https://www.multpl.com/shiller-pe/table/by-month"
 
+def compare_values(current_value, historical_value, name):
+    """Compare a current value to the historical value and returns a formatted string."""
+    if current_value > historical_value:
+        return f"- ABOVE its {name}."
+    elif current_value == historical_value:
+        return f"- SAME as its {name}."
+    else:
+        return f"- BELOW its {name}."
+
 resp = requests.get(URL, timeout=20)   # go get the page
 resp.raise_for_status()                # crash if something went wrong
 
@@ -56,33 +65,10 @@ print(f"Historical Median Shiller P/E: {median_pe:.2f}")
 
 # Quick interpretation: are we above or below the long-term average, and median?
 print("\nThe market is currently:")
-if current_pe > average_pe:
-    print("- ABOVE its historical average.")
-elif current_pe == average_pe:
-    print("- Same as its historical average.")
-else:
-    print("- BELOW its historical average.")
-
-if current_pe > average_pe_30y:
-    print("- ABOVE its 30 year average.")
-elif current_pe == average_pe_30y:
-    print("- Same as its 30 year average.")
-else:
-    print("- BELOW its 30 year average.")
-
-if current_pe > average_pe_10y:
-    print("- ABOVE its 10 year average.")
-elif current_pe == average_pe_10y:
-    print("- Same as its 10 year average.")
-else:
-    print("- BELOW its 10 year average.")
-
-if current_pe > median_pe:
-    print("- ABOVE its historical median.")
-elif current_pe == median_pe:
-    print("- Same as its historical median.")
-else:
-    print("- BELOW its historical median.")
+print(compare_values(current_value=current_pe, historical_value=average_pe, name="historical average"))
+print(compare_values(current_value=current_pe, historical_value=average_pe_30y, name="30 year average"))
+print(compare_values(current_value=current_pe, historical_value=average_pe_10y, name="10 year average"))
+print(compare_values(current_value=current_pe, historical_value=median_pe, name="historical median"))
 
 from scipy import stats
 percentile = stats.percentileofscore(df['shiller_pe'], current_pe)
