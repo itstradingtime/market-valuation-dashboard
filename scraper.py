@@ -26,3 +26,29 @@ print("\nDataFrame info:")
 df.info()
 
 df.to_csv('data/shiller_pe.csv', index=False)
+
+print("\n--- Analysis ---")
+# Get the most recent P/E (the first item in the 'shiller_pe' column)
+current_pe = df['shiller_pe'].iloc[0]
+
+# Print our finding in a formatted way
+print(f"Current Shiller P/E: {current_pe:.2f}")
+
+# Calculate the average (mean) of the entire history
+average_pe = df['shiller_pe'].mean()
+print(f"Historical Average Shiller P/E: {average_pe:.2f}")
+
+# Calculate the median of the entire history
+median_pe = df["shiller_pe"].median()
+print(f"Historical Median Shiller P/E: {median_pe:.2f}")
+
+# Quick interpretation: are we above or below the long-term average, and median?
+if current_pe > average_pe:
+    print("→ The market is currently ABOVE its historical average.")
+else:
+    print("→ The market is currently BELOW its historical average.")
+
+if current_pe > median_pe:
+    print("→ The market is currently ABOVE its historical median.")
+else:
+    print("→ The market is currently BELOW its historical median.")
