@@ -24,3 +24,5 @@ print(df.head())
 # how info about data types to confirm our conversion worked
 print("\nDataFrame info:")
 df.info()
+
+df.to_csv('data/shiller_pe.csv', index=False)
