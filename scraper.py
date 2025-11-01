@@ -87,6 +87,12 @@ df = df.sort_values("date", ascending=True)
 plt.figure(figsize=(10, 5))
 plt.plot(df["date"], df["shiller_pe"], label="Shiller P/E")
 
+# Add horizontal lines for our analysis
+plt.axhline(y=average_pe, color='red', linestyle='--', label=f'Hist. Avg: {average_pe:.2f}')
+plt.axhline(y=average_pe_30y, color='orange', linestyle='--', label=f'30Y Avg: {average_pe_30y:.2f}')
+plt.axhline(y=average_pe_10y, color='purple', linestyle='--', label=f'10Y Avg: {average_pe_10y:.2f}')
+plt.axhline(y=median_pe, color='green', linestyle='--', label=f'Median: {median_pe:.2f}')
+
 plt.title("Shiller P/E (CAPE) — Full History")
 plt.xlabel("Date")
 plt.ylabel("P/E")
