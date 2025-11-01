@@ -74,3 +74,26 @@ from scipy import stats
 percentile = stats.percentileofscore(df['shiller_pe'], current_pe)
 
 print(f"\nCurrent Shiller P/E is higher than {percentile:.1f}% of all monthly readings.")
+
+import os
+from matplotlib import pyplot as plt
+
+# Ensure a 'figures' folder exists to save the chart
+os.makedirs("figures", exist_ok=True)
+
+# Make sure dates are in ascending order for a left to right timeline
+df = df.sort_values("date", ascending=True)
+
+plt.figure(figsize=(10, 5))
+plt.plot(df["date"], df["shiller_pe"], label="Shiller P/E")
+
+plt.title("Shiller P/E (CAPE) — Full History")
+plt.xlabel("Date")
+plt.ylabel("P/E")
+plt.grid(True)
+plt.legend()
+
+# Save and show
+plt.tight_layout()
+plt.savefig("figures/shiller_pe_history.png", dpi=150)
+plt.show()
