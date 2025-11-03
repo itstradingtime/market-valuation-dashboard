@@ -26,6 +26,9 @@ df.columns = ['date', 'shiller_pe']
 # Convert the 'date' column from text to datetime objects
 df['date'] = pd.to_datetime(df['date'])
 
+# Make sure dates are in ascending order for a left to right timeline
+df = df.sort_values("date", ascending=True)
+
 # Show a preview to make sure the data looks right
 print("Cleaned DataFrame preview:")
 print(df.head())
@@ -47,21 +50,23 @@ print(f"Current Shiller P/E: {current_pe:.2f}")
 average_pe = df['shiller_pe'].mean()
 print(f"Historical Average Shiller P/E: {average_pe:.2f}")
 
-# Calculate the average of the last 30 years
-thirty_years_ago = df['date'].max() - pd.DateOffset(years=30)
-df_30_years = df[df['date'] > thirty_years_ago]
-average_pe_30y = df_30_years['shiller_pe'].mean()
-print(f"30 year Average Shiller P/E: {average_pe_30y:.2f}")
-
-# Calculate the average of the last 10 years
-ten_years_ago = df['date'].max() - pd.DateOffset(years=10)
-df_10_years = df[df['date'] > ten_years_ago]
-average_pe_10y = df_10_years['shiller_pe'].mean()
-print(f"10 year Average Shiller P/E: {average_pe_10y:.2f}")
-
 # Calculate the median of the entire history
 median_pe = df["shiller_pe"].median()
 print(f"Historical Median Shiller P/E: {median_pe:.2f}")
+
+import os
+from matplotlib import pyplot as plt
+
+# Ensure a 'figures' folder exists to save the chart
+os.makedirs("figures", exist_ok=True)
+
+# Calculating rolling averages. 10 years = 120 months
+df['avg_10y'] = df['shiller_pe'].rolling(window=120).mean()
+# 30 years = 360 months
+df['avg_30y'] = df['shiller_pe'].rolling(window=360).mean()
+
+average_pe_10y = df["avg_10y"].iloc[-1]   # last available 10-year rolling average
+average_pe_30y = df["avg_30y"].iloc[-1]   # last available 30-year rolling average
 
 # Quick interpretation: are we above or below the long-term average, and median?
 print("\nThe market is currently:")
@@ -75,22 +80,13 @@ percentile = stats.percentileofscore(df['shiller_pe'], current_pe)
 
 print(f"\nCurrent Shiller P/E is higher than {percentile:.1f}% of all monthly readings.")
 
-import os
-from matplotlib import pyplot as plt
-
-# Ensure a 'figures' folder exists to save the chart
-os.makedirs("figures", exist_ok=True)
-
-# Make sure dates are in ascending order for a left to right timeline
-df = df.sort_values("date", ascending=True)
-
 plt.figure(figsize=(10, 5))
 plt.plot(df["date"], df["shiller_pe"], label="Shiller P/E")
 
 # Add horizontal lines for our analysis
 plt.axhline(y=average_pe, color='red', linestyle='--', label=f'Hist. Avg: {average_pe:.2f}')
-plt.axhline(y=average_pe_30y, color='orange', linestyle='--', label=f'30Y Avg: {average_pe_30y:.2f}')
-plt.axhline(y=average_pe_10y, color='purple', linestyle='--', label=f'10Y Avg: {average_pe_10y:.2f}')
+plt.plot(df["date"], df["avg_30y"], color='orange', linestyle='--', label='30Y Rolling Avg')
+plt.plot(df["date"], df["avg_10y"], color='purple', linestyle='--', label='10Y Rolling Avg')
 plt.axhline(y=median_pe, color='green', linestyle='--', label=f'Median: {median_pe:.2f}')
 
 plt.title("Shiller P/E (CAPE) — Full History")
