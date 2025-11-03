@@ -64,6 +64,10 @@ os.makedirs("figures", exist_ok=True)
 df['avg_10y'] = df['shiller_pe'].rolling(window=120).mean()
 # 30 years = 360 months
 df['avg_30y'] = df['shiller_pe'].rolling(window=360).mean()
+# Historical
+df['avg_historical'] = df['shiller_pe'].expanding().mean()
+# Historical median
+df['median_historical'] = df['shiller_pe'].expanding().median()
 
 average_pe_10y = df["avg_10y"].iloc[-1]   # last available 10-year rolling average
 average_pe_30y = df["avg_30y"].iloc[-1]   # last available 30-year rolling average
@@ -84,10 +88,10 @@ plt.figure(figsize=(10, 5))
 plt.plot(df["date"], df["shiller_pe"], label="Shiller P/E")
 
 # Add horizontal lines for our analysis
-plt.axhline(y=average_pe, color='red', linestyle='--', label=f'Hist. Avg: {average_pe:.2f}')
+plt.plot(df["date"], df["avg_historical"], color='red', linestyle='--', label='Historical Avg')
 plt.plot(df["date"], df["avg_30y"], color='orange', linestyle='--', label='30Y Rolling Avg')
 plt.plot(df["date"], df["avg_10y"], color='purple', linestyle='--', label='10Y Rolling Avg')
-plt.axhline(y=median_pe, color='green', linestyle='--', label=f'Median: {median_pe:.2f}')
+plt.plot(df["date"], df["median_historical"], color='black', linestyle='--', label='Historical Median')
 
 plt.title("Shiller P/E (CAPE) — Full History")
 plt.xlabel("Date")
