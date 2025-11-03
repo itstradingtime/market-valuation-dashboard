@@ -41,7 +41,7 @@ df.to_csv('data/shiller_pe.csv', index=False)
 
 print("\n--- Analysis ---")
 # Get the most recent P/E (the first item in the 'shiller_pe' column)
-current_pe = df['shiller_pe'].iloc[0]
+current_pe = df['shiller_pe'].iloc[-1]
 
 # Print our finding in a formatted way
 print(f"Current Shiller P/E: {current_pe:.2f}")
