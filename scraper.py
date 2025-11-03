@@ -102,4 +102,29 @@ plt.legend()
 # Save and show
 plt.tight_layout()
 plt.savefig("figures/shiller_pe_history.png", dpi=150)
+
+# --- CHART 2: Zoomed-in view of the last 30 years ---
+
+from datetime import timedelta
+
+# Determine cutoff date (≈30 years ago)
+cutoff_date = df["date"].max() - pd.DateOffset(years=30)
+
+# Filter the dataframe
+df_recent = df[df["date"] >= cutoff_date]
+
+plt.figure(figsize=(10, 5))
+plt.plot(df_recent["date"], df_recent["shiller_pe"], label="Shiller P/E", color="blue")
+plt.plot(df_recent["date"], df_recent["avg_30y"], label="30Y Rolling Avg", color="orange")
+plt.plot(df_recent["date"], df_recent["avg_10y"], label="10Y Rolling Avg", color="purple")
+
+plt.title("Shiller P/E (CAPE) — Last 30 Years")
+plt.xlabel("Date")
+plt.ylabel("P/E")
+plt.grid(True)
+plt.legend()
+
+# Save and show
+plt.tight_layout()
+plt.savefig("figures/shiller_pe_last30y.png", dpi=150)
 plt.show()
