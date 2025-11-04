@@ -39,27 +39,6 @@ df.info()
 
 df.to_csv('data/shiller_pe.csv', index=False)
 
-print("\n--- Analysis ---")
-# Get the most recent P/E (the first item in the 'shiller_pe' column)
-current_pe = df['shiller_pe'].iloc[-1]
-
-# Print our finding in a formatted way
-print(f"Current Shiller P/E: {current_pe:.2f}")
-
-# Calculate the average (mean) of the entire history
-average_pe = df['shiller_pe'].mean()
-print(f"Historical Average Shiller P/E: {average_pe:.2f}")
-
-# Calculate the median of the entire history
-median_pe = df["shiller_pe"].median()
-print(f"Historical Median Shiller P/E: {median_pe:.2f}")
-
-import os
-from matplotlib import pyplot as plt
-
-# Ensure a 'figures' folder exists to save the chart
-os.makedirs("figures", exist_ok=True)
-
 # Calculating rolling averages. 10 years = 120 months
 df['avg_10y'] = df['shiller_pe'].rolling(window=120).mean()
 # 30 years = 360 months
@@ -71,6 +50,33 @@ df['median_historical'] = df['shiller_pe'].expanding().median()
 
 average_pe_10y = df["avg_10y"].iloc[-1]   # last available 10-year rolling average
 average_pe_30y = df["avg_30y"].iloc[-1]   # last available 30-year rolling average
+
+print("\n--- Analysis ---")
+# Get the most recent P/E (the first item in the 'shiller_pe' column)
+current_pe = df['shiller_pe'].iloc[-1]
+
+# Print our finding in a formatted way
+print(f"Current Shiller P/E: {current_pe:.2f}")
+
+# Calculate the average (mean) of the entire history
+average_pe = df['shiller_pe'].mean()
+print(f"Historical Average Shiller P/E: {average_pe:.2f}")
+
+# Calculate the average (mean) of the last 30 years
+print(f"30-Year Rolling Average P/E: {average_pe_30y:.2f}")
+
+# Calculate the average (mean) of the last 10 years
+print(f"10-Year Rolling Average P/E: {average_pe_10y:.2f}")
+
+# Calculate the median of the entire history
+median_pe = df["shiller_pe"].median()
+print(f"Historical Median Shiller P/E: {median_pe:.2f}")
+
+import os
+from matplotlib import pyplot as plt
+
+# Ensure a 'figures' folder exists to save the chart
+os.makedirs("figures", exist_ok=True)
 
 # Quick interpretation: are we above or below the long-term average, and median?
 print("\nThe market is currently:")
