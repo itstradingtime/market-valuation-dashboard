@@ -1,0 +1,2388 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title>Buffett Indicator Valuation Model</title>
+		<meta name="description" content="The Buffett Indicator is the ratio of total US stock market valuation to GDP. As of June 30, 2025 we calculate the Buffett Indicator as 217%, which is about 2.2 standard deviations above the historical average, suggesting that the US stock market is Strongly Overvalued." />
+		<meta name="keywords" content="buffett indicator, buffet indicator, buffett indicator chart, buffett indicator graph, buffett index, market to gdp, wilshire 5000, stock market, crash, recession, overvalued, valuation, investing, investments">
+		<link rel="canonical" href="https://www.currentmarketvaluation.com/models/buffett-indicator.php" />
+		<!-- TWITTER METADATA -->
+		<meta name="twitter:card" content="summary_large_image"></meta>
+		<meta name="twitter:site" content="@us_market_value" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.currentmarketvaluation.com/models/buffett-indicator.php" />
+		<meta property="og:title" content="Buffett Indicator Shows Stock Market is Strongly Overvalued" />
+		<meta property="og:description" content="The Buffett Indicator is currently 68.63% higher than its historical average, signifying that the stock market is Strongly Overvalued." />
+		<meta property="og:image" content="https://cmv.imgix.net/<br />
+<b>Warning</b>:  Use of undefined constant BI_UPDATED_DATE_NUM - assumed 'BI_UPDATED_DATE_NUM' (this will throw an Error in a future version of PHP) in <b>/var/www/html/models/buffett-indicator.php</b> on line <b>21</b><br />
+BI_UPDATED_DATE_NUM-BI-social.png?v=53" />	
+		
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143244724-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-143244724-1');
+	</script>
+	
+	<!-- MS Clarity -->
+	<!--
+	<script type="text/javascript">
+		(function(c,l,a,r,i,t,y){
+			c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+			t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+			y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+		})(window, document, "clarity", "script", "l7ctq8nk6r");
+	</script>
+	-->
+	
+	<!-- mailchimp -->
+	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/795d6e966bc56af5f328295e6/3708557adc05a23a066765cd3.js");</script>
+	
+	<!-- js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous" defer></script> 
+	
+	<!-- Disabled
+	<script src="https://www.currentmarketvaluation.com/includes/js/cmvAnalytics.js"></script>
+	-->
+	
+	<!-- Adobe Fonts -->
+	<!-- Render Blocking CSS File <link rel="stylesheet" href="https://use.typekit.net/ocn2ezr.css"> -->
+	<!-- Asynchronously load Adobe Font CSS file -->
+	<!-- Per https://web.dev/defer-non-critical-css/ -->
+	<link rel="preload" href="https://use.typekit.net/ocn2ezr.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://use.typekit.net/ocn2ezr.css"></noscript>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X_UA_Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width", intial-scale="1.0">
+
+	<!-- CMV CSS Files -->
+	<!-- <link rel="stylesheet" href="https://www.currentmarketvaluation.com/css/bootstrap-v52.css" defer> -->
+	<!-- <link rel="stylesheet" href="https://www.currentmarketvaluation.com/css/custom-styles.css" defer> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" defer>
+	<link rel="stylesheet" href="https://www.currentmarketvaluation.com/css/cmv-styles-2022-06-28.css" defer>
+	
+	
+	<!-- Favicon Styles -- from https://realfavicongenerator.net/ -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#dc3545">
+	<meta name="msapplication-TileColor" content="#dc3545">
+	<meta name="theme-color" content="#ffffff">
+	
+			
+		
+	</head>
+	
+		<script>
+		var MemberSpace = window.MemberSpace || {"subdomain":"currentmarketvaluation"};
+		(function(d){
+		  var s = d.createElement("script");
+		  s.src = "https://cdn.memberspace.com/scripts/widgets.js";
+		  var e = d.getElementsByTagName("script")[0];
+		  e.parentNode.insertBefore(s,e);
+		}(document));
+	
+		const handleReady = ({ detail }) => {
+			const { memberInfo } = detail;
+			if (
+				memberInfo &&
+				Array.isArray(memberInfo.memberships) &&
+				memberInfo.memberships.length > 0
+			) {
+				
+				// Setup vars and check for valid membership
+				let hasActiveMembership = false;
+				let hasFutureCancel = false;
+				const now = new Date();
+				
+				for (const m of memberInfo.memberships) {
+					// if member has ANY active membership, set hasActive to true
+					if (m.status === "active" || m.status === "trialing") {
+						hasActiveMembership = true;
+						break;
+					}
+					// if member has ANY membership with a cancelsOn date in the future, set var to true
+					if (m.status === "canceled" && new Date(m.cancelsOn) > now) {
+						hasFutureCancel = true;
+					}
+				}
+				
+				if (hasActiveMembership || hasFutureCancel) {
+					// Good to go, redirect to members area
+					window.location.href = 'https://www.currentmarketvaluation.com/members/bi.php';
+				} else {
+					// all memberships are either canceled and expired, or something else → nonmember view
+					// (i.e. do nothing, allow the nonmember page to load)
+					console.log("Error 4: Not on a Plan or cancellation has expired");
+				}
+				
+			} else {
+				// memberInfo may exist, but user is not a member - do nothing, load page as normal
+				console.log("memberInfo:", memberInfo);
+				console.log('Error 5: Not on a Plan');
+			}
+		}
+		document.addEventListener('MemberSpace.ready', handleReady);
+	</script>
+		
+	<body data-bs-spy="scroll" data-bs-target="#navbar-model-nav" data-bs-offset="80" tabindex="0">
+
+				
+
+	<center><img src="https://cmv.imgix.net/assets/logo-horiz-wordmark-med.png?fm=webp&q=80" style="width: 40%; margin-right: 25px; margin-top: 15px; margin-bottom: 15px;" alt="Current Market Valuation Logo"/></center>
+	<nav class="navbar navbar-expand-md navbar-dark bg-danger sticky-top" style="border-top: 5px solid #842029; z-index: 3;">
+		
+		<div class="container-fluid">
+		
+		<!-- <a class="navbar-brand" href="https://www.currentmarketvaluation.com">Current Market Valuation</a> -->
+		
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			
+				<li class="nav-item">
+					<a class="nav-link " aria-current="page" href="https://www.currentmarketvaluation.com">Home</a>
+				</li>
+			
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Valuation Models
+					</a>
+					
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<!-- BI -->
+						<li><a class="dropdown-item active" href="https://www.currentmarketvaluation.com/models/buffett-indicator.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Buffett Indicator</a></li>
+						
+						<!-- PE -->
+						<li><a class=
+						"dropdown-item " href="https://www.currentmarketvaluation.com/models/price-earnings.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Price/Earnings Ratio</a></li>
+						
+						<!-- PS -->
+						<li><a class=
+						"dropdown-item " href="https://www.currentmarketvaluation.com/models/price-to-sales.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Price/Sales Ratio</a></li>
+						
+						<!-- IN -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/10y-interest-rates.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#fd7e14" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Interest Rates</a></li>
+						
+						<!-- SP -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/s&p500-mean-reversion.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Mean Reversion</a></li>
+						
+						<!-- YG -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/earnings-yield-gap.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Earnings Yield Gap</a></li>
+					</ul>
+
+				</li>
+				
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Recession Models
+					</a>
+					
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="z-index: 2;">
+						<!-- YC -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/yield-curve.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Yield Curve</a></li>
+						
+						<!-- YC -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/sahm-rule.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Sahm Rule</a></li>
+						
+						<!-- SC -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/state-coincidence.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						State Coincidence Index</a></li>
+					</ul>
+				</li>
+				
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Sentiment Models
+					</a>
+					
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<!-- MD -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/margin-debt.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Margin Debt</a></li>
+						
+						<!-- JB -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/junk-bond-spreads.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Junk Bond Spreads</a></li>
+						
+						<!-- VX -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/vix-fear-index.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						VIX Fear Index</a></li>
+						
+						<!-- EU -->
+						<li><a class="dropdown-item " href="https://www.currentmarketvaluation.com/models/economic-policy-uncertainty.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#198754" class="bi bi-circle-fill mr-1" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>
+						Economic Policy Uncertainty</a></li>
+						
+						
+					</ul>
+				</li>
+			
+			<!--
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Resources
+				</a>
+				
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="https://www.currentmarketvaluation.com/resources/library.php">
+					Library</a></li>
+					<li><a class="dropdown-item" href="https://www.currentmarketvaluation.com/resources/service-reccomendations.php">
+					Service Reccomendations</a></li>
+				</ul>
+			</li>
+			-->
+			
+			
+			
+			<li class="nav-item ms-2">
+				  <a class="nav-link btn btn-warning " href="https://www.currentmarketvaluation.com/membership.php?source=nav" style="color: black;">Membership</a>
+			  </li>
+			
+		  </ul>
+		  
+		  
+		  <ul class="navbar-nav mx-2 mb-lg-0">
+			  
+			  
+			  <li class="nav-item">
+				<a class="nav-link " href="https://www.currentmarketvaluation.com/about.php">About</a>
+			  </li>
+			  
+			  
+			  
+			  <li class="nav-item mx-2">
+				<a class="nav-link" href="https://www.currentmarketvaluation.com/members/dashboard.php?msopen=/member/sign_in">Login</a>
+			  </li>
+			  
+		
+			<li class="nav-item">
+			  <a class="nav-link " href="https://www.currentmarketvaluation.com/members/dashboard.php">Member Dashboard</a>
+			</li>
+				
+		  </ul>
+		  
+		
+		 
+		</div>
+	  </div>
+	  
+	  
+	</nav>
+	
+	<div class="" style=" position: sticky; z-index: 1; top:65px; coloxr: black; background: white; display: flex; justify-content: center; padding: 6px; box-shadow: rgba(0, 0, 0, 0.07) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;">
+		<span class="" style="font-size: .7rem; line-height: .8rem;">Models updated quarterly. 
+		<a href="https://www.currentmarketvaluation.com/membership.php?source=banner" target="_blank" class="fw-bold">
+		Become a member</a> for weekly model updates, aggregate valuation model access, and more. 
+		
+	</div>
+
+			
+		<center>
+		
+				
+		<div class="jumbotron my-0 pt-3 pb-1 jumbotron-fluid ">
+			<div class="container main-col-container">
+				<div class="page-header">
+					<span class="by-word">Updated on</span><span class="card-author"> June 30, 2025</span>
+					<h1 class="page-title">The Buffett Indicator</h1>
+					<span class="by-word mt-2">suggests that the US stock market is </span>
+				</div>
+				<span class="badge header-status-badge text-bg-danger mt-2">Strongly Overvalued</span>
+			</div><!-- container -->	
+		</div>	<!-- jumbotron -->
+
+		</center>	
+			
+		<div class="container  main-col-container">
+			
+			<div class="row">
+				
+				<!-- SIDEBAR -->
+				<div class="sidebar custom-hide-small no-adthrive-ads">
+					
+					<!-- <hr> -->
+					
+					<div class="col-left-sticky">
+						
+						<div class="d-flex align-items-center">
+							<hr class="flex-grow-1">
+							<span class="px-3">On This Page</span>
+							<hr class="flex-grow-1">
+						</div>
+						
+						<nav id="navbar-model-nav" class="navbar bg-light flex-column align-items-stretch p-1 col-left-sticky alert alert-light">
+							
+							<nav class="nav nav-pills flex-column">
+								<a class="nav-link warning" href="#overview-section">Overview</a>
+								<a class="nav-link" href="#theory-data-section">Theory & Data</a>
+								<a class="nav-link" href="#current-analysis-section">Current Values & Analysis</a>
+								<a class="nav-link" href="#download-section">Download Model Data</a>
+								<!--
+								<a class="nav-link" href="#predictive-value-section">Predictive Value of the Model</a> -->
+								<a class="nav-link" href="#criticisms-section">Criticisms of the Model</a>
+								<a class="nav-link" href="#resources-section">Additional Resources</a>
+								<a class="nav-link" href="#data-sources-section">Data Sources</a>
+							</nav>
+						</nav>
+						
+						
+					
+						
+						
+	<div class="d-flex align-items-center">
+	<hr class="flex-grow-1">
+	<span class="px-3">Other Models</span>
+	<hr class="flex-grow-1">
+	</div>
+	<nav id="navbar-other-models" class="navbar bg-light border flex-column align-items-stretch p-1 alert alert-light">
+		<div class="accordion" id="modelAccordion">
+
+			<div class="accordion-item border-0">
+				<div class="accordion-header">
+					<button class="navbar-brand btn btn-link text-start" type="button" data-bs-toggle="collapse" data-bs-target="#valuationLinks" aria-expanded="true" aria-controls="valuationLinks">
+						Valuation Models
+					</button>
+				</div>
+				<div id="valuationLinks" class="accordion-collapse collapse show" data-bs-parent="#modelAccordion">
+					<div class="nav nav-pills flex-column ms-2">
+						<a class="nav-link" href="/models/buffett-indicator.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Buffett Indicator</span></a>
+						<a class="nav-link" href="/models/price-earnings.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Price/Earnings Ratio</span></a>
+						<a class="nav-link" href="/models/price-to-sales.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Price/Sales Ratio</span></a>
+						<a class="nav-link" href="/models/10y-interest-rates.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#fd7e14" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Interest Rates</span></a>
+						<a class="nav-link" href="/models/s&p500-mean-reversion.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Mean Reversion</span></a>
+						<a class="nav-link" href="/models/earnings-yield-gap.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Earnings Yield Gap</span></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item border-0">
+				<div class="accordion-header">
+					<button class="navbar-brand btn btn-link text-start" type="button" data-bs-toggle="collapse" data-bs-target="#recessionLinks" aria-expanded="false" aria-controls="recessionLinks">
+						Recession Models
+					</button>
+				</div>
+				<div id="recessionLinks" class="accordion-collapse collapse " data-bs-parent="#modelAccordion">
+					<div class="nav nav-pills flex-column ms-2">
+						<a class="nav-link" href="/models/yield-curve.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#dc3545" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Yield Curve</span></a>
+						<a class="nav-link" href="/models/sahm-rule.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Sahm Rule</span></a>
+						<a class="nav-link" href="/models/state-coincidence.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">State Coincidence</span></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item border-0">
+				<div class="accordion-header">
+					<button class="navbar-brand btn btn-link text-start" type="button" data-bs-toggle="collapse" data-bs-target="#sentimentLinks" aria-expanded="false" aria-controls="sentimentLinks">
+						Sentiment Models
+					</button>
+				</div>
+				<div id="sentimentLinks" class="accordion-collapse collapse " data-bs-parent="#modelAccordion">
+					<div class="nav nav-pills flex-column ms-2">
+						<a class="nav-link" href="/models/margin-debt.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Margin Debt</span></a>
+						<a class="nav-link" href="/models/junk-bond-spreads.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Junk Bond Spreads</span></a>
+						<a class="nav-link" href="/models/vix-fear-index.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#6C757D" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">VIX Fear Index</span></a>
+						<a class="nav-link" href="/models/economic-policy-uncertainty.php"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="#198754" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg><span class="mx-2">Economic Policy Uncertainty</span></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</nav>						
+						
+
+					</div>
+					
+					
+				</div><!-- END SIDEBAR -->
+				
+				<div class="col page-content">
+				<!-- START PAGE CONTENT -->
+			   
+				<!-- START SECTION -->
+				<div class="container" >
+					
+					
+					
+					<div id="overview-section">
+						
+						<div class="h2-box-row">
+							<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+							<h2>Overview</h2>
+							<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+						</div><!-- h2-box-row -->
+						<div class="small-hr"><hr></div>
+						
+						<p class="lead">The Buffett Indicator (aka, Buffett Index, or Buffett Ratio) is the ratio of the total United States stock market to GDP.</p>
+						<div class="bd-callout bd-callout-warning">
+							<center>
+							<span>Buffett Indicator = </span>
+							<div class="frac">
+								<span>Total US Stock Market Value</span>
+								<span class="symbol">/</span>
+								<span class="bottom">Gross Domestic Product (GDP)</span>
+								
+							</div>
+							</center>
+						</div>
+						
+						<p> As of June 30, 2025 the ratio values are:</p>
+						
+						<div class="bd-callout bd-callout-warning">
+							<center>
+							<span>Total US Stock Market Value = $65.47T</span><br>
+							<span>Annualized GDP = $30.15T</span>
+							
+							<hr>
+							
+							<h4 class="mt-2">
+								<span class="">Buffett Indicator</span> = 
+								<div class="frac">
+									
+									<span class="">
+									$65.47T
+									</span>
+									
+									<span class="symbol">/</span> 
+									 
+									 <span class="bottom">
+									$30.15T
+									</span>
+									
+								</div><!-- frac -->
+								
+								 = 
+								 <span class="text-danger">
+								 <span class="fw-bold">217%</span>
+								</span>
+							</h4>
+							</center>
+						</div>
+						
+						<p class="lead">
+						This ratio fluctuates over time since the value of the stock market can be very volatile, but GDP tends to grow much more predictably. <span class="fw-bold text-danger">The current ratio of 217% is approximately 68.63% (or about 2.2 standard deviations) above the historical trend line</span>, suggesting that <span class="fw-bold text-danger">the stock market is Strongly Overvalued</span> relative to GDP.</p>
+						
+						<div class="bd-callout bd-callout-warning">
+							<h4>Why Does it Matter?</h4>
+							<p>The Buffett Indicator expresses the value of the US stock market in terms of the size of the US economy. If the stock market value is growing much faster than the actual economy, then it may be in a bubble.</p>
+						</div>
+						
+						<p>For much more analysis and information on the data sources, methodology, and counterpoints to this model, continue reading.</p>
+						
+						<!-- 1 Summary Chart -->
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chart1" type="button">Chart - Updated Quarterly</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart1week" type="button">Chart - Updated Weekly
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart1Int" type="button">Interactive Chart
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+						</div>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="chart1" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<img 
+		srcset="
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=511&fm=webp&q=30 511w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=492&fm=webp&q=30 492w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=672&fm=webp&q=30 672w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=677&fm=webp&q=30 677w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=896&fm=webp&q=30 896w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=841&fm=webp&q=30 841w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=511&dpr=2&fm=webp&q=30 1022w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=492&dpr=2&fm=webp&q=30 984w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=672&dpr=2&fm=webp&q=30 1344w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=677&dpr=2&fm=webp&q=30 1354w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=896&dpr=2&fm=webp&q=30 1792w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=841&dpr=2&fm=webp&q=30 1682w
+		"
+		sizes="
+		(max-width: 575.98px) 511px,
+		(max-width: 767.98px) 492px,
+		(max-width: 991.98px) 672px,
+		(max-width: 1199.98px) 677px, 
+		(max-width: 1399.98px) 896px, 
+		(max-width: 2000px) 841px
+		"
+		src="https://cmv.imgix.net/2025-06-30-BI-Chart4.png" 
+		title="Buffett Indicator Model Summary" 
+		alt="Buffett Indicator Model Summary" 
+		class="img-fluid mx-auto"
+		styles="width:100%;"
+		></img> 
+		
+										</div>
+							</div>
+							<div class="tab-pane fade" id="chart1week" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+							<div class="tab-pane fade" id="chart1Int" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+						</div>
+						<!-- End Summary Chart -->
+						
+					</div><!-- Overview Section -->
+					
+					<!--
+					<a href="https://www.koyfin.com/for-investors/independent-investors/?via=currentmarketvaluation" title="Koyfin - the leading research platform for financial analysis - Try it Free" target="_blank">
+						
+						<img style="width: 100%;" src="https://cmv.imgix.net/sponsors/koyfin/koyfin_custom_best_value_1200x628.png?fm=webp&q=50" loading="" alt="Koyfin">
+						
+						
+						
+						
+					</a>
+					<hr>
+					-->
+					
+					<div id="theory-data-section">
+						<div class="h2-box-row">
+							<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+							<h2>Theory & Data</h2>
+							<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+						</div><!-- h2-box-row -->
+						<div class="small-hr"><hr></div>
+						
+						<p>The Buffett Indicator is the ratio of total US stock market value divided by GDP. Named after Warren Buffett, who called the ratio "the best single measure of where valuations stand at any given moment". <!-- “Warren Buffett on the Stock Market,” Warren Buffett and Carol Loomis, Fortune, 12/10/2001 --> (Buffett has since walked back those comments, hesitating to endorse any single measure as either comprehensive or consistent over time, but this ratio remains credited to his name). To calculate the ratio, we need to get data for both metrics: Total Market Value and GDP.</p>
+							
+					
+						
+						<h5>Total Market Value</h5>
+						
+						<!--
+						<p>The theoretical value of any single share of stock is the present value of future cash flows attributable to that share. In aggregate, the combined value (market capitalization) of the full US stock market represents the present value of all future economic profits by public corporations. This is not so much a measure of current valuation as it is an indicator of future expectations. If the value of the whole stock market goes up, it is because investors think that future profits are going to increase.</p>
+						-->
+						
+						<p>The most common measurement of the aggregate value of the US stock market is the Wilshire 5000. This is available directly from Wilshire (links to all data sources <a href="#data-sources-section">below</a>), with monthly data starting in 1971, and daily measures beginning in 1980. The Wilshire index was created such that a 1-point increase in the index corresponds to a $1 billion increase in US market cap. Per Wilshire, that 1:1 ratio has slightly drifted, and as of 2020 a 1-point increase in the index corresponded to a $1.05 billion dollar increase.</p>
+						
+						<!-- Adsense -->
+						<!--
+						<hr><hr>
+						-->
+						
+						<p>For data prior to 1970, the most appropriate data for total stock market value is <span class="fst-italic"> Z.1 Financial Account - Nonfinancial corporate business; corporate equities; liability, Level</span>, published by the Federal Reserve, which provides a quarterly estimate of total market value back to 1945. <!-- Because Z.1 and Wilshire are slightly different measurements, in order to integrate the datasets, we index the Z.1 data to match up to the 1970 Wilshire starting point. --></p>
+						
+						<p>These combined data are shown below. The current estimate of composite US stock market value is $65.47T.</p>
+						
+						
+						<!-- 2 Mkt Value Chart -->
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chart2" type="button">Chart - Updated Quarterly</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart2week" type="button">Chart - Updated Weekly
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart2Int" type="button">Interactive Chart
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+						</div>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="chart2" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<img 
+		srcset="
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=511&fm=webp&q=30 511w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=492&fm=webp&q=30 492w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=672&fm=webp&q=30 672w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=677&fm=webp&q=30 677w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=896&fm=webp&q=30 896w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=841&fm=webp&q=30 841w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=511&dpr=2&fm=webp&q=30 1022w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=492&dpr=2&fm=webp&q=30 984w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=672&dpr=2&fm=webp&q=30 1344w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=677&dpr=2&fm=webp&q=30 1354w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=896&dpr=2&fm=webp&q=30 1792w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart1.png?w=841&dpr=2&fm=webp&q=30 1682w
+		"
+		sizes="
+		(max-width: 575.98px) 511px,
+		(max-width: 767.98px) 492px,
+		(max-width: 991.98px) 672px,
+		(max-width: 1199.98px) 677px, 
+		(max-width: 1399.98px) 896px, 
+		(max-width: 2000px) 841px
+		"
+		src="https://cmv.imgix.net/2025-06-30-BI-Chart1.png" 
+		title="Chart: US Stock Market Value" 
+		alt="Chart: US Stock Market Value" 
+		class="img-fluid mx-auto"
+		styles="width:100%;"
+		></img> 
+		
+										</div>
+							</div>
+							<div class="tab-pane fade" id="chart2week" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+							<div class="tab-pane fade" id="chart2Int" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									<!-- <div id="JSON-HC-BI-1" style="height: 500px;"></div> -->
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+						</div>
+						<!-- End Mkt Value Chart -->
+						
+						<h5>GDP</h5>
+						<p>GDP (Gross Domestic Product) represents the total annual production of the US economy. It is measured quarterly by the US Government's Bureau of Economic Analysis. GDP is a static measurement of prior economic activity - it does not forecast the future or include any expectation or valuation of future economic activity or economic growth.</p>
+						<p>GDP is calculated and published quarterly, several months in arrears, such that by the time the data is published it is for a quarter that ended several months ago. The Federal Reserve Bank of Atlanta publishes <a href="https://www.frbatlanta.org/cqer/research/gdpnow/archives.aspx" target="_blank" title="Most recent GDP estimate">GDPNow</a>, an estimate of the current quarter's GDP growth rate, which can be used to calculate an estimate for the current month's (annualized) GDP value of $30.15 trillion dollars. A historical chart of GDP is shown below.</p>
+						
+						
+						<!-- 3 GDP Chart -->
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chart3" type="button">Chart - Updated Quarterly</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart3week" type="button">Chart - Updated Weekly
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart3Int" type="button">Interactive Chart
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+						</div>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="chart3" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<img 
+		srcset="
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=511&fm=webp&q=30 511w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=492&fm=webp&q=30 492w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=672&fm=webp&q=30 672w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=677&fm=webp&q=30 677w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=896&fm=webp&q=30 896w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=841&fm=webp&q=30 841w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=511&dpr=2&fm=webp&q=30 1022w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=492&dpr=2&fm=webp&q=30 984w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=672&dpr=2&fm=webp&q=30 1344w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=677&dpr=2&fm=webp&q=30 1354w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=896&dpr=2&fm=webp&q=30 1792w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart2.png?w=841&dpr=2&fm=webp&q=30 1682w
+		"
+		sizes="
+		(max-width: 575.98px) 511px,
+		(max-width: 767.98px) 492px,
+		(max-width: 991.98px) 672px,
+		(max-width: 1199.98px) 677px, 
+		(max-width: 1399.98px) 896px, 
+		(max-width: 2000px) 841px
+		"
+		src="https://cmv.imgix.net/2025-06-30-BI-Chart2.png" 
+		title="Chart: Nominal US GDP" 
+		alt="Chart: Nominal US GDP" 
+		class="img-fluid mx-auto"
+		styles="width:100%;"
+		></img> 
+		
+										</div>
+							</div>
+							<div class="tab-pane fade" id="chart3week" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+							<div class="tab-pane fade" id="chart3Int" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									<!-- <div id="JSON-HC-BI-2" style="height: 500px;"></div> -->
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+						</div>
+						<!-- End GDP Chart -->
+							
+						<h5>The Ratio of the Two</h5>
+						<p>Given that the stock market value represents the present value of expected <span class="fst-italic">future</span> economic activity, and that GDP is a measure of most recent <span class="fst-italic">actual</span> economic activity, the ratio of these two data series represents expected future returns relative to current performance. (A bit similar to the P/E ratio of a particular stock.) It stands to reason that this ratio would remain relatively stable over time, increasing slowly as new technology creates more efficient returns from labor and capital.</p>
+
+						
+						<!-- Styling incorrect. Hiding content until fixed.
+						<p>
+						<button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#dataInconsistency" aria-expanded="false" aria-controls="dataInconsistency">
+							Sidebar: Why do various BI measures differ?
+						</button>
+						</p>
+						
+						
+						<div class="collapse" id="dataInconsistency">
+							<div class="card card-body alert-secondary">
+							
+							<p>Searching for "Buffett Indicator" online can bring up a variety of different scores, which is a bit surprising for such a simple and straightforward metric. There are only two variables involved, so whats going on? We explain our methodology and data sources in detail on this page, and so are transparent about how we achieve our resulting score. That said, below are the main inconsistencies we see when comparing our data to other models that also claim to show the Buffett Indicator.</p>
+							<h5>Total Market Value</h5>
+							<p>We've seen two main inconsistencies from other models here. First, some models don't use Wilshire 5000 and instead continue using the Fed's Z.1 equities measure for the full dataset. Second, for those using Wilshire,  that dataset (<a href="https://www.wilshire.com/indexes/wilshire-5000-family/wilshire-5000-total-market-index" target="_blank" title="Wilshire description">per Wilshire's description</a>) requires manual adjustments in order to correlate the reported Wilshire point value to corresponding USD values over time.</p>
+							
+							<h5>GDP</h5>
+							<p>GDP is widely reported by the US Bureau of Economic Analysis and not controversial, however there are a few snags that can change a model result. First is that GDP changes over time; the BEA adjusts GDP numbers (including previously reported "actuals") as additional detail comes in, often several quarters after the fact. This is routine and the adjustments are often immaterial to a model as blunt as the Buffett Indicator, but these alterations could be missed.</p>
+							<p>Second, and more likely, is the consideration that GDP is announced well in arrears. Initial results of prior quarter GDP are not available until several months into the following quarter. If using only this GDP data from the BEA to find the Buffett Indicator, we would be comparing today's market value to a GDP number 3-6 months ago! This might be fine in normal environments where GDP growth is fairly consistent, but it is nonsensical during times of GDP volatility. As such, our model uses estimates of <span class="font-italic">current</span> GDP, to be compared to <span class="font-italic">current</span> market value.</p>
+							<p>Lastly, we'd note that some other Buffett Indicator models use Gross National Product (GNP) instead of GDP. The two differ slightly, and so will create a different outcome, which in our view may be meaningful but is not the Buffett Indicator.</p>
+							
+							<hr>
+							<p>Overall, we'd emphasize that there is nothing overwhelmingly 'right' or 'wrong' about these different measures for the Buffett Indicator - what matters most is the relative position of the measurement over time, compared to its own historical performance.</p>
+							
+							
+							</div>
+						</div>
+						
+						-->
+
+					</div><!-- Theory & Data Section -->
+					
+					<!--
+					<hr>
+					<a href="https://www.koyfin.com/for-investors/independent-investors/?via=currentmarketvaluation" title="Koyfin - the leading research platform for financial analysis - Try it Free" target="_blank">
+						<img style="width: 100%;" src="https://cmv.imgix.net/sponsors/koyfin/Koyfin_Facebook_Ads_Right Column_1200x628_3.jpg?fm=webp&q=50" loading="" alt="Koyfin">
+					</a>
+					<hr>
+					-->
+					
+					
+					
+						
+					<div id="current-analysis-section">
+						<div class="h2-box-row">
+							<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+							<h2>Current Values & Analysis</h2>
+							<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+						</div><!-- h2-box-row -->
+						<div class="small-hr"><hr></div>
+						
+						<p>The historic value of the Buffett Indicator ratio is shown below:</p>
+						
+						
+						<!-- 4 BI Ratio Chart -->
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chart4" type="button">Chart - Updated Quarterly</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart4week" type="button">Chart - Updated Weekly
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart4Int" type="button">Interactive Chart
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+						</div>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="chart4" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<img 
+		srcset="
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=511&fm=webp&q=30 511w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=492&fm=webp&q=30 492w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=672&fm=webp&q=30 672w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=677&fm=webp&q=30 677w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=896&fm=webp&q=30 896w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=841&fm=webp&q=30 841w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=511&dpr=2&fm=webp&q=30 1022w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=492&dpr=2&fm=webp&q=30 984w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=672&dpr=2&fm=webp&q=30 1344w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=677&dpr=2&fm=webp&q=30 1354w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=896&dpr=2&fm=webp&q=30 1792w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart3.png?w=841&dpr=2&fm=webp&q=30 1682w
+		"
+		sizes="
+		(max-width: 575.98px) 511px,
+		(max-width: 767.98px) 492px,
+		(max-width: 991.98px) 672px,
+		(max-width: 1199.98px) 677px, 
+		(max-width: 1399.98px) 896px, 
+		(max-width: 2000px) 841px
+		"
+		src="https://cmv.imgix.net/2025-06-30-BI-Chart3.png" 
+		title="Chart: Market Value to GDP Ratio" 
+		alt="Chart: Market Value to GDP Ratio" 
+		class="img-fluid mx-auto"
+		styles="width:100%;"
+		></img> 
+		
+										</div>
+							</div>
+							<div class="tab-pane fade" id="chart4week" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+							<div class="tab-pane fade" id="chart4Int" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									<!-- <div id="JSON-HC-BI-3" style="height: 500px;"></div> -->
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+						</div>
+						<!-- End BI Ratio Chart -->
+						
+						<p>In this chart, the "Historical Trend Line" is an exponential regression line illustrating the historic growth rate of the Buffett Indicator ratio. Given the high volatility of the stock market value, the ratio tends to deviate from the trend line quite materially, sometimes for decades at a time.</p>
+						
+						<p>The standard deviation gives insight into how relatively high or low the observed Buffett Indicator values are from the historical trend line. Bands showing +/- one and two standard deviations can be mapped onto the data, and are shown below:</p>
+						
+						
+						<!-- 5 BI Ratio + Std Chart -->
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chart5" type="button">Chart - Updated Quarterly</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart5week" type="button">Chart - Updated Weekly
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart5Int" type="button">Interactive Chart
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+						</div>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="chart5" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<img 
+		srcset="
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=511&fm=webp&q=30 511w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=492&fm=webp&q=30 492w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=672&fm=webp&q=30 672w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=677&fm=webp&q=30 677w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=896&fm=webp&q=30 896w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=841&fm=webp&q=30 841w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=511&dpr=2&fm=webp&q=30 1022w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=492&dpr=2&fm=webp&q=30 984w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=672&dpr=2&fm=webp&q=30 1344w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=677&dpr=2&fm=webp&q=30 1354w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=896&dpr=2&fm=webp&q=30 1792w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart4.png?w=841&dpr=2&fm=webp&q=30 1682w
+		"
+		sizes="
+		(max-width: 575.98px) 511px,
+		(max-width: 767.98px) 492px,
+		(max-width: 991.98px) 672px,
+		(max-width: 1199.98px) 677px, 
+		(max-width: 1399.98px) 896px, 
+		(max-width: 2000px) 841px
+		"
+		src="https://cmv.imgix.net/2025-06-30-BI-Chart4.png" 
+		title="Chart: Market Value to GDP Ratio, w/Std Dev Bands" 
+		alt="Chart: Market Value to GDP Ratio, w/Std Dev Bands" 
+		class="img-fluid mx-auto"
+		styles="width:100%;"
+		></img> 
+		
+										</div>
+							</div>
+							<div class="tab-pane fade" id="chart5week" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+							<div class="tab-pane fade" id="chart5Int" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									<!-- <div id="JSON-HC-BI-4" style="height: 500px;"></div> -->
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+						</div>
+						<!-- End BI Ratio + Std Chart -->
+							
+						<p>These standard deviation bands correspond with <a href="https://www.currentmarketvaluation.com/about.php#ratings">CMV ratings</a> to estimate overall stock market over/undervaluation. As illustrated, <span class="fw-bold text-danger">the current Buffett Indicator value of 217% is 2.2 standard deviations above the trend line, indicating the market is Strongly Overvalued.</span></p>
+						
+						<p>And finally, below is the same chart normalized to show the historical average and standard deviation bands as straight horizontal lines, making it a bit easier to view trends over time.</p>
+						
+						
+						<!-- 6 BI Ratio + Std Chart -->
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chart6" type="button">Chart</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart6Rec" type="button">Chart - Recent</button>
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#chart6Int" type="button">Interactive Chart
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 18 18"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>
+							</button>
+						</div>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="chart6" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<img 
+		srcset="
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=511&fm=webp&q=30 511w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=492&fm=webp&q=30 492w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=672&fm=webp&q=30 672w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=677&fm=webp&q=30 677w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=896&fm=webp&q=30 896w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=841&fm=webp&q=30 841w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=511&dpr=2&fm=webp&q=30 1022w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=492&dpr=2&fm=webp&q=30 984w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=672&dpr=2&fm=webp&q=30 1344w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=677&dpr=2&fm=webp&q=30 1354w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=896&dpr=2&fm=webp&q=30 1792w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5.png?w=841&dpr=2&fm=webp&q=30 1682w
+		"
+		sizes="
+		(max-width: 575.98px) 511px,
+		(max-width: 767.98px) 492px,
+		(max-width: 991.98px) 672px,
+		(max-width: 1199.98px) 677px, 
+		(max-width: 1399.98px) 896px, 
+		(max-width: 2000px) 841px
+		"
+		src="https://cmv.imgix.net/2025-06-30-BI-Chart5.png" 
+		title="Chart: Market Value to GDP Ratio, w/Std Dev Bands, Detrended" 
+		alt="Chart: Market Value to GDP Ratio, w/Std Dev Bands, Detrended" 
+		class="img-fluid mx-auto"
+		styles="width:100%;"
+		></img> 
+		
+										</div>
+							</div>
+							<div class="tab-pane fade" id="chart6Rec" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									
+		<img 
+		srcset="
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=511&fm=webp&q=30 511w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=492&fm=webp&q=30 492w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=672&fm=webp&q=30 672w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=677&fm=webp&q=30 677w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=896&fm=webp&q=30 896w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=841&fm=webp&q=30 841w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=511&dpr=2&fm=webp&q=30 1022w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=492&dpr=2&fm=webp&q=30 984w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=672&dpr=2&fm=webp&q=30 1344w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=677&dpr=2&fm=webp&q=30 1354w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=896&dpr=2&fm=webp&q=30 1792w,
+		https://cmv.imgix.net/model-charts/2025-06-30-BI-Chart5-Recent.png?w=841&dpr=2&fm=webp&q=30 1682w
+		"
+		sizes="
+		(max-width: 575.98px) 511px,
+		(max-width: 767.98px) 492px,
+		(max-width: 991.98px) 672px,
+		(max-width: 1199.98px) 677px, 
+		(max-width: 1399.98px) 896px, 
+		(max-width: 2000px) 841px
+		"
+		src="https://cmv.imgix.net/2025-06-30-BI-Chart5-Recent.png" 
+		title="Chart: Market Value to GDP Ratio, w/Std Dev Bands, Detrended" 
+		alt="Chart: Market Value to GDP Ratio, w/Std Dev Bands, Detrended" 
+		class="img-fluid mx-auto"
+		styles="width:100%;"
+		></img> 
+		
+										</div>
+							</div>
+							<div class="tab-pane fade" id="chart6Int" role="tabpanel" tabindex="0">
+								<div class="model-chart-wide-new">
+									<!-- <div id="JSON-HC-BI-5" style="height: 500px;"></div> -->
+									
+		<div class="chart-membership" style="
+		
+		background: rgb(240,240,240);
+		background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(240,240,240,1) 20%, rgba(255,174,0,0) 100%);
+		
+		">
+		
+			<style>
+			
+			.membership-container img.li-icon {
+				height: 30px;
+				filter: drop-shadow(0px 0px 3px #c5c3be); 	
+			}
+			
+			</style>
+			
+			<div class="d-flex">
+				<div class="membership-container" style="padding: 40px; padding-bottom: 10px;">
+					<center>
+						<h3 class="mx-0">Weekly Data is limited to members</h3>
+						<p class="p-0">Consider becoming a CMV member to gain access to:</p>
+					</center>
+					
+					<ul class="px-3" style="font-size: 0.8rem;">
+					
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-calendar.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Weekly Updates:</span> Every model detail page updated weekly with most recent available data.
+							</span>	
+						</div>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-gauge.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Market Model:</span> Access to the <a target="_blank" href="https://www.currentmarketvaluation.com/membership.php?source=chart_amvi#premium">CMV Aggregate Market Value Index</a>, a weekly index score of overall stock market valuation.
+							</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-dashboard.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Member Dashboard:</span> Access a dashboard page summarizing each model and aggregate market value status.</span>
+						</div>
+							
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-correlation.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Correlations:</span> Members can view detailed charts and metrics about the historical correlation that each valuation model has with subsequent S&P500 performance, over investment horizons from 1-month to 10-years.</span>
+						</div>
+						
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-download.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Downloads:</span> Download up to 70 years historical data for every model in clean .xls format - use to better understand market cycles, or to inform your own market models. Ability to download model data requires Data Download subscription tier.</span>
+						</div>
+						
+						<hr>
+						
+						<div class="d-flex my-2">
+							<img class="li-icon" src="https://cmv.imgix.net/assets/icon-free-trial.png?w=150&dpr=2&fm=webp&q=50">
+							<span class="" style="margin-left: 20px;">
+							<span class="fw-bold" style="text-transform: uppercase; color: #0D6EFD; font-size: 1rem;">Free Trial:</span> Try membership for free for 7 days. Cancellation is 1-click at any time if you decide it's not for you. After the trial, annual membership renews at $99/yr.</span>
+						</div>
+							
+							
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="d-grid px-3">
+			  <a target="_blank" href="https://www.currentmarketvaluation.com/?msopen=/member/plans/uiinhemozk" class="btn btn-primary" role="button" style="height: 40px; text-decoration: none;">Continue to Free Trial</a>
+			</div>
+			
+			<div class="d-grid px-3 text-center" style="font-size: 0.8rem;">
+			<p class="m-0">or</p>
+			<p class="m-0 fs80"><a href="https://www.currentmarketvaluation.com/membership.php?source=chart_direct_sell_learnmore_btn_bottom">Learn more about membership</a></p>
+			</div>
+			  
+		</div>
+	<br>
+									</div>
+							</div>
+						</div>
+						<!-- End BI Ratio + Std Chart -->
+						
+						
+							
+
+					</div><!-- Current Values & Analysis Section -->
+					
+					<div id="download-section">
+					<div class="h2-box-row">
+						<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+						<h2>Download Model Data</h2>
+						<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+					</div><!-- h2-box-row -->
+					<div class="small-hr"><hr></div>
+					<h5>Want to dig deeper?</h5>
+					
+					<div class="row my-1">
+						<!-- Left Column (Download Membership content) -->
+						<div class="col-md-8">
+							<p>Our Data Download Membership gives you access to a monthly Excel file containing the full underlying dataset for every CMV model — including the Buffett Indicator. Perfect for investors and researchers who want to analyze trends, build custom tools, or incorporate this data into their own models.</p>
+							<p><a href="https://www.currentmarketvaluation.com/members/download-example-data.xlsx">Download a sample file</a> to see the exact format (demo only; no real data included).</p>
+							<p>Data Download Membership also unlocks weekly data updates across the full site, our aggregate Market Value Index model, and more. <a href="https://www.currentmarketvaluation.com/membership.php?source=bi_download_copy">Learn more about membership here</a>.</p>
+						</div>
+						<!-- Right Column (other content) -->
+						<div class="col-md-4">
+							<!-- Insert your other content here -->
+							<div class="" style="text-align: center; margin: auto">
+								<div class="card mb-4 rounded-3 shadow-sm border-success" style="max-width: 100%;">
+									<div class="card-header py-3 text-bg-success border-success">
+									<h4 class="my-0 fw-normal">Data Download</h4>
+									</div>
+									<div class="card-body">
+										<h1 class="card-title pricing-card-title">$199<small class="text-body-secondary fw-light">/yr</small></h1>
+										<a href="/?msopen=/member/plans/bkhdlt5mig"><button type="button" class="w-100 mt-2 btn btn-lg btn-success">Continue</button></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					</div><!-- Download Model Data Section -->
+					
+					<!--
+					<div id="predictive-value-section">
+						<div class="h2-box-row">
+							<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+							<h2>Predictive Value of the Model</h2>
+							<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+						</div>
+	
+						<div class="small-hr"><hr></div>
+						
+						<p>While it is never possible to predict future stock market performance, it is simple to look at historical data to see how the market has performed after periods of high and low valuation of the Buffett Indicator.</p>
+						
+						
+												
+						
+							
+						
+	
+						
+						<p>The above chart shows monthly datapoints from 1950 to 2017, mapping the relative value of the Buffett Indicator model (x-axis) against the subsequent 5 year S&P500 returns (y-axis). The colored, dashed vertical lines indicate the same under/overvaluation bands as shown in previous models (i.e., values to the right of the dark red line indicate datapoints that were > 2 standard deviations above the trend line, indicating the market was 'Strongly Overvalued').</p>
+						
+						<p>Overall, the chart above shows that there is a <span class="fst-italic">slight</span> correlation between Buffett Indicator valuation ranking and subsequent S&P500 returns. The highest stock market returns tend to come after periods of undervaluation (left side of the chart). Periods of relative overvaluation (right side of the chart), particularly at the extreme, tend to be followed by lower S&P500 returns five years later.</p>
+						
+						<p>A few final comments on this:</p>
+						<ul>
+							<li>This chart shows correlation, but not causation. The trend here could be pretty quickly undone if the stock market continues its recent strong performance.</li>
+							<li>The regression line in the chart above is to indicate the general trend of the data, but not as a claim of statistical significance. The r-squared value here is very low, and time series data like this is vulnerable to autocorrelation, making results seem more significant than they really are. <span class="fw-bold text-danger">This chart is in no way a guarantee of future stock market performance</span>.</li>
+						</ul>
+						
+						
+						
+					</div> -->
+					
+					<div id="criticisms-section">
+						<div class="h2-box-row">
+							<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+							<h2>Criticisms of The Buffett Indicator</h2>
+							<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+						</div><!-- h2-box-row -->
+						<div class="small-hr"><hr></div>
+						
+						<p>No single metric is illustrative of the health or relative valuation entire market. Common criticisms of the Buffett Indicator are:</p>
+						
+						<h5>Interest Rates</h5>
+						<p>The Buffett Indicator only considers the value of the stock market, but does not consider how stocks are valued relative to alternative investments, such as bonds.</p>
+						
+						<p>When interest rates are high, bonds pay a high return to investors, which lowers demand (and prices) of stocks. Additionally, higher interest rates means it's more expensive for businesses to borrow money, making it harder to borrow cash as a way to finance growth. Any business that takes on debt will face relatively higher interest payments, and therefore fewer profits. Less corporate profits means lower corporate stock values. The corollary to this is also true. Low interest rates means bonds pay less to investors, which lowers demand for them, which raises stock prices in relation to bonds. Low interest rates make it easy for corporations to borrow cash to finance growth. Corporate interest payments will be low, making profits higher.</p>
+						
+						<p>This is all to say that all else equal if interest rates are high, stock prices go down. If interest rates are low, stock prices go up.</p>
+						
+						<p>Over the last 50 years the interest rate on 10 Year US Treasury bonds has averaged 5.83%. During the peak of the .com bubble when the Buffett Indicator was very high, the 10Y Treasury rate was a bit higher than average, around 6.5%, showing that low interest rates weren't juicing the stock market. Today the Buffett Indicator is still quite high relative to its historical trend line, but interest rates are still relatively low, currently at 4.24%.</p>
+						
+						<p>This can be interpreted to mean that during the .com bubble, equity investors had other good options for their money - but they still piled recklessly into stocks. Whereas today, investing in bonds returns relatively little. Today's investors need to seek a return from somewhere, and low interest rates are forcing them to seek that return from riskier assets, effectively pumping up the stock market. While this doesn't justify the high Buffett Indicator on any fundamental basis, it does suggest that the market today is less likely to quickly collapse like it did in 2000, and that it may have reason to stay abnormally high for as long as interest rates are abnormally low.</p>
+						
+						<p>For additional detail on the effect interest rates have on stock prices, view our <a href="/models/10y-interest-rates.php" title="CMV Interest Rate Model">Interest Rate Model</a>.</p>
+						
+				
+					
+						
+						<h5>International Sales</h5>
+						<p>A second fair criticism of the Buffett Indicator is that the stock market valuation reflects international activity while GDP does not. Though GDP does include national exports, it would not include something like the sales Amazon makes in India (sourced from Indian fulfillment centers and sellers). However, Amazon's India business is definitely priced into its overall stock price, which is listed in the USA. Imagine if the Indian government banned Amazon from the country and shut down all its operations/subsidiaries there. This would lower Amazon's stock price, which would lower overall US stock market value, but have no impact on US GDP. That is, the Buffett Indicator would fall. Globalization has expanded steadily over the last 50 years and has been a key driver in the growth of the Buffett Indicator over time, since US stocks have risen in value due to overseas activities not included in US GDP.</p>
+						
+						<p>This is a very fair criticism of the Buffett Indicator itself -- though not necessarily for the valuation model presented here, which looks at the Buffett Indicator relative to it's own exponentially growing trend line. Our model expects exponential growth of the indicator over time, such that we have a "fair" Buffett Indicator value of 50% in 1960, growing to ~120% in 2020. Part of that natural increase is due to technological advances that lead to higher profits for existing firms, or from the creation of new industries entirely. Another part of that natural increase is because US market value is growing faster than GDP due to the rise of international sales of US-based firms. The key point here is that the model is looking at relative performance against the indicator's own trend rate, and not just saying "the Buffett Indicator is high".</p>	
+						
+						<!-- Adsense -->
+						<!--
+						<hr>						-->
+					
+					</div><!-- Crit Section -->
+					
+					
+					<div id="resources-section">
+					<!-- START BOOKS -->
+						<div class="h2-box-row">
+							<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+							<h2>Additional Resources</h2>
+							<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+						</div><!-- h2-box-row -->
+					
+						<div class="small-hr"><hr></div>
+						
+						<div class="books-container">
+						<p>Below are some classics on fundamentals-based value investing. While these aren't specifically about the Buffett Indicator, they espouse similar ideas, and are strongly recommended resources.</p>
+						<!--
+						<p>For more detail, and more recommendations, <a href="#" target="_blank" title="CMV Book Recommendations">check out our books page</a>.</p>
+						-->
+						
+						<!-- Aswath Little Book -->	
+						<div class="bookbox">
+							<div class="bookbox-left">
+							<a href="https://www.amazon.com/gp/product/1118004779/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=1118004779&linkId=00a13fee2ce704a8690498904b358ec0" target="_blank" title="The Little Book of Valuation">
+								<img 
+								class=""
+								src="https://cmv.imgix.net/books/lbvaluation-210@2x.png?fm=webp&q=20&w=200"
+								alt="The Little Book of Valuation">
+							</a>
+							</div>
+							<div class="bookbox-right">
+							<h5 class="card-title">
+								<a href="https://www.amazon.com/gp/product/1118004779/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=1118004779&linkId=00a13fee2ce704a8690498904b358ec0" target="_blank" title="The Little Book of Valuation">The Little Book of Valuation</a>
+							</h5>
+							<span class="by-word">by</span>
+							<span class="card-author">Aswath Damodaran </span>
+							<hr>
+							<p class="card-text">An accessible, and intuitive, guide to stock valuation. Valuation is at the heart of any investment decision, whether that decision is to buy, sell, or hold. In The Little Book of Valuation, expert Aswath Damodaran explains the techniques in language that any investors can understand.</p>
+							</div>
+						</div>
+						
+						<hr>
+						
+						<!-- Intelligent Investor -->
+						<div class="bookbox">
+							
+							<div class="bookbox-left">
+							<a href="https://www.amazon.com/gp/product/0060555661/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=0060555661&linkId=199798d2dc1191209a350a55bb46284d" target="_blank" title="The Intelligent Investor">
+								<img 
+								class="" 
+								src="https://cmv.imgix.net/books/intelinvestor-210@2x.png?fm=webp&q=20&w=200" 
+								alt="The Intelligent Investor">
+							</a>
+							</div>
+							
+							<div class="bookbox-right">
+							<h5 class="card-title"><a href="https://www.amazon.com/gp/product/0060555661/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=0060555661&linkId=199798d2dc1191209a350a55bb46284d" target="_blank" title="The Intelligent Investor">The Intelligent Investor</a></h5>
+							
+							<span class="by-word">by</span>
+							<span class="card-author">Benjamin Graham</span>
+							<hr>
+							<p class="card-text">The greatest investment advisor of the twentieth century, Benjamin Graham, taught and inspired people worldwide. The father of value investing, this is the updated classic from 1949.</p>
+							</div>
+						</div>
+						
+						<hr>
+						
+						<!-- Aswath Little Book -->
+						<div class="bookbox">
+							
+							<div class="bookbox-left">
+							<a href="https://www.amazon.com/gp/product/111801152X/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=111801152X&linkId=35575ce9c5caee16109c3d49cbdab10c" target="_blank" title="Investment Valuation">
+								  <img 
+								  class="" 
+								  src="https://cmv.imgix.net/books/investvaluation-210@2x.png?fm=webp&q=20&w=200"
+								  alt="Investment Valuation">
+							  </a>
+							</div>
+							
+							<div class="bookbox-right">
+							<h5 class="card-title"><a href="https://www.amazon.com/gp/product/111801152X/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=111801152X&linkId=35575ce9c5caee16109c3d49cbdab10c" target="_blank" title="Investment Valuation">Investment Valuation</a></h5>
+							
+							<span class="by-word">by</span>
+							<span class="card-author">Aswath Damodaran</span>
+							<hr>
+							<p class="card-text">The definitive textbook on all topics related to investment valuation tools and techniques. Literally a textbook - not light reading.</p>
+							</div>
+						</div>
+						
+						<hr>
+						
+						<!-- Book 4 - Random Walk -->	
+						<div class="bookbox">
+							
+							<div class="bookbox-left">
+							<a href="https://www.amazon.com/gp/product/0393358380/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=0393358380&linkId=0bde19dae0a67500da2bce8944ef5d7c" target="_blank" title="A Random Walk Down Wall St">
+								<img 
+								class="" 
+								src="https://cmv.imgix.net/books/randomwalk-210@2x.png?fm=webp&q=20&w=200" 
+								alt="A Random Walk Down Wall St">
+							</a>
+							</div>
+							
+							<div class="bookbox-right">
+							<h5 class="card-title"><a href="https://www.amazon.com/gp/product/0393358380/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=currentmark0b-20&creative=9325&linkCode=as2&creativeASIN=0393358380&linkId=0bde19dae0a67500da2bce8944ef5d7c" target="_blank" title="A Random Walk Down Wall St">A Random Walk Down Wall Street</a></h5>
+							
+							<span class="by-word">by</span>
+							<span class="card-author">Burton G. Malkiel</span>
+							<hr>
+							<p class="card-text">Whether you’re considering your first 401k contribution, contemplating retirement, or anywhere in between, A Random Walk Down Wall Street is the best investment guide money can buy.</p>
+							</div>
+						</div>
+						</div><!-- books-container -->
+					
+						<hr>
+					
+						<!-- END BOOKS -->
+					
+					
+					
+					
+					</div><!-- End Addl Resources SEction-->
+					
+					
+					
+					
+					
+					<div id="data-sources-section">
+					<div class="h2-box-row">
+						<div class="box-col-h2-spacer-small" style="border-color: #dc3545"></div>
+						<h2>Data Sources</h2>
+						<div class="box-col-h2-spacer-large"  style="border-color: #dc3545"></div>
+					</div><!-- h2-box-row -->
+
+					<div class="small-hr"><hr></div>
+					
+					<p>The below table cites all data and sources used in constructing the charts, or otherwise referred to, on this page.</p>
+					<table class="table table-sm">
+						<thead class="thead-light">
+							<tr>
+								<th class="data-col" scope="col">Item</th>
+								<th scope="col">Source</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Z.1 Financial Account</th>
+								<td><a href="https://fred.stlouisfed.org/series/NCBEILQ027S" target="_blank" title="Fed Z.1 Nonfinancial corporate business">Board of Governors of the Federal Reserve System (US), Nonfinancial corporate business; corporate equities; liability, Level [NCBEILQ027S], retrieved from FRED, Federal Reserve Bank of St. Louis</a>
+								<p class="small">Used to estimate aggregate market value prior to 1970.</p>
+								</td>
+							</tr>
+							
+							<tr>
+								<th scope="row">Wilshire 5000</th>
+								<td><a href="https://www.wilshire.com/indexes/wilshire-5000-family/wilshire-5000-total-market-index" target="_blank" title="Wilshire 5000">Wilshire 5000</a>, data accessible from the <a href="https://markets.ft.com/data/indices/tearsheet/summary?s=FTW5000:PSE" target="_blank" title="Wilshire 5000 Data">Financial Times</a>.
+								<p class="small">Used to estimate aggregate market value, 1970-present. Adjustments made in-line with Wilshire guidance that in 1985 a 1-point change in the index corresponded to a $1B change in aggregate market value, and by 2020 a 1-point index change corresponded to $1.05B in market value. That drift is extrapolated on a straight-line basis to present day.</p></td>
+							</tr>
+							
+							<tr>
+								<th scope="row">GDP</th>
+								<td><a href="https://fred.stlouisfed.org/series/GDP" target="_blank" title="FRED GDP">U.S. Bureau of Economic Analysis, Gross Domestic Product [GDP], retrieved from FRED, Federal Reserve Bank of St. Louis;</a>
+								<p class="small">Used for all historical GDP data.</p>
+								</td>
+							</tr>
+							
+							<tr>
+								<th scope="row">GDP Now</th>
+								<td><a href="https://www.frbatlanta.org/cqer/research/gdpnow/archives.aspx" target="_blank" title="GDPNow">GDPNow - Federal Reserve Bank of Atlanta</a>
+								<p class="small">Used to estimate current quarter GDP.</p>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>			
+					
+
+					</div><!-- Data Sources SEction -->		
+				<!-- END SECTION -->
+
+				<!-- /END PAGE CONTENT -->
+
+				</div><!-- col -->
+				
+				</div><!-- page content -->
+				
+				<div class="col-right-sticky">
+				
+										
+				</div><!-- col right sticky -->
+			
+			</div><!-- row -->
+				
+		</div><!-- container -->
+		
+		
+	
+	<style>
+	.black-radio:checked {
+	  background-color: #dc3545;
+	}
+	</style>
+	
+	<!--- FOOTER -->
+	<div class="footer-relative mt-5" style="position: relative; height: 111px;">
+		
+		<!-- Curved BG -->
+		<div class="footer-curve" style="position: absolute; top: 0; left: 0; width: 100%;">
+			<svg style="" width="100%" height="111" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1001 111" preserveAspectRatio="none" class="" >
+				<path d="M407.21 15.8956C537.851 42.4389 599.349 76.6302 838.741 93.501C917.226 99.032 967.922 93.2301 1001 81.1469L1001 111H0V21.5267C98.1188 10.501 242.474 -17.575 407.21 15.8956Z" style="fill:#F8D7DA;"></path>
+			</svg>
+		</div>
+		
+		<!-- Squiggle -->
+		<svg class="" preserveAspectRatio="none" viewBox="0 0 1003 143" fill="none" xmlns="http://www.w3.org/2000/svg"  style="margin-top: -30px; position: absolute; top: 0; left: 0; width: 100%;">
+			<path d="M1002 114.237C968.911 126.309 918.6 146.592 840.089 141.066C600.613 124.211 539.244 38.2043 408.557 11.6857C243.764 -21.754 98.2857 30.6679 1.00002 67.6339" style="stroke: #dc3545;" vector-effect="non-scaling-stroke" x="0" y="0" width="100" height="100" fill="none" stroke-linecap="square" stroke-width="2" stroke-miterlimit="300"></path>
+		</svg>
+		
+	</div>
+	
+	<div class="footer-box no_adthrive" style="background-color: #F8D7DA;">
+		<div class="container">
+		  <footer class="py-5">
+			<div class="row">
+				<div class="home-logo my-4">
+					<img style="width: 550px; max-width: 90%; " src="https://cmv.imgix.net/assets/logo_horizontal.png?fm=webp&w=1000" alt="Current Market Valuation logo" loading="lazy">
+					
+				</div>
+				
+				  <div class="col-6 col-md-2 mb-3">
+					<h4>Valuation</h4>
+					<ul class="nav flex-column">
+					  <li class="nav-item mb-2"><a href="/models/buffett-indicator.php" class="nav-link p-0 text-muted">Buffett Indicator</a></li>
+					  <li class="nav-item mb-2"><a href="/models/price-earnings.php" class="nav-link p-0 text-muted">P/E Ratio</a></li>
+					  <li class="nav-item mb-2"><a href="/models/price-to-sales.php" class="nav-link p-0 text-muted">Price to Sales Ratio</a></li>
+					  <li class="nav-item mb-2"><a href="/models/10y-interest-rates.php" class="nav-link p-0 text-muted">Interest Rates</a></li>
+					  <li class="nav-item mb-2"><a href="/models/s&p500-mean-reversion.php" class="nav-link p-0 text-muted">Mean Reversion</a></li>
+					  <li class="nav-item mb-2"><a href="/models/earnings-yield-gap.php" class="nav-link p-0 text-muted">Earnings Yield Gap</a></li>
+					</ul>
+				  </div>
+			
+				  <div class="col-6 col-md-2 mb-3">
+					<h4>Recession</h4>
+					<ul class="nav flex-column">
+					  <li class="nav-item mb-2"><a href="/models/yield-curve.php" class="nav-link p-0 text-muted">Yield Curve</a></li>
+					  <li class="nav-item mb-2"><a href="/models/sahm-rule.php" class="nav-link p-0 text-muted">Sahm Rule</a></li>
+					  <li class="nav-item mb-2"><a href="/models/state-coincidence.php" class="nav-link p-0 text-muted">State Coincidence</a></li>
+					</ul>
+					
+					  
+				  </div>
+			
+				  <div class="col-6 col-md-2 mb-3">
+					<h4>Sentiment</h4>
+					  <ul class="nav flex-column">
+						<li class="nav-item mb-2"><a href="/models/margin-debt.php" class="nav-link p-0 text-muted">Margin Debt</a></li>
+						<li class="nav-item mb-2"><a href="/models/junk-bond-spreads.php" class="nav-link p-0 text-muted">Junk Bonds</a></li>
+						<li class="nav-item mb-2"><a href="/models/vix-fear-index.php" class="nav-link p-0 text-muted">VIX Fear Index</a></li>
+						<li class="nav-item mb-2"><a href="/models/economic-policy-uncertainty.php" class="nav-link p-0 text-muted">Econ. Policy Uncertainty</a></li>
+					</ul>
+				  </div>
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+			  
+			  <!-- Membership + Mailchimp Newsletter Signup -->
+				<div id="mc_embed_signup" class="col-md-5 offset-md-1 mb-3">
+				
+					<h4 class="mb-2 mx-0" style="font-size: 2rem;">Become a Member</h4>
+					  <span class="my-0" style="width: 100%;">Members enjoy access to our Aggregate Market Value Index, receive weekly updates of all models, and can download supporting Excel data for each model.</span>
+					  
+					  <div class="d-grid gap-2 mt-4">
+					  <a href="https://www.currentmarketvaluation.com/membership.php?source=footer" class="btn btn-dark" role="button">Learn More About Membership</a>
+					  </div>
+					  
+					  <center>
+					  <p class="mt-4 fst-italic" style="padding: 0">- or just -</p>
+					  </center>
+				
+					<form action="https://currentmarketvaluation.us21.list-manage.com/subscribe/post?u=795d6e966bc56af5f328295e6&amp;id=4a1b49df60&amp;f_id=0043cae1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+						
+						<div id="mc_embed_signup_scroll">
+						
+							<div class="mc-field-group input-group">
+								<h4 class="mb-1 mx-0" style="font-size: 1.8rem;">Join the Newsletter</h4>
+								<span class="mb-2" style="width: 100%;">Monthly model updates, right to your inbox.</span>
+								<!--
+								<div class="form-radio-buttons my-2">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input black-radio" type="radio" name="group[32]" id="mce-group[32]-32-0" value="1" checked>
+										<label class="form-check-label" for="mce-group[32]-32-0">Weekly</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input black-radio" type="radio" name="group[32]" id="mce-group[32]-32-1" value="2">
+										<label class="form-check-label" for="mce-group[32]-32-1">Monthly</label>
+									</div>
+								</div>
+								<span id="mce-group[32]-HELPERTEXT" class="helper_text"></span>
+								-->
+							</div>
+							
+							<div class="d-flex flex-column flex-sm-row w-100 gap-2 mc-field-group">
+								<label for="mce-EMAIL" class="visually-hidden">Email address <span class="asterisk">*</span></label>
+								<input id="mce-EMAIL" type="email" value="" name="EMAIL" class="form-control required email" placeholder="Email address" required>
+								
+								<div class="optionalParent">
+									<div class="clear foot">
+										<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-dark">
+									</div>
+								</div>
+								
+								
+							</div>
+							
+							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_795d6e966bc56af5f328295e6_4a1b49df60" tabindex="-1" value="">
+							</div>
+							
+							<div id="mce-responses" class="clear foot">
+								<div class="response" id="mce-error-response" style="display:none"></div>
+								<div class="response" id="mce-success-response" style="display:none"></div>
+							</div>
+						
+						</div>
+						
+					</form>
+				</div>
+				
+				<!-- <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script> -->
+				
+				<script type="text/javascript" src="https://www.currentmarketvaluation.com/includes/mailchimp/local-mc-validate.js"></script>
+				<script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]="EMAIL";ftypes[0]="email";fnames[1]="FNAME";ftypes[1]="text";fnames[2]="LNAME";ftypes[2]="text";fnames[3]="ADDRESS";ftypes[3]="address";fnames[4]="PHONE";ftypes[4]="phone";fnames[5]="BIRTHDAY";ftypes[5]="birthday";}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+				<!--End mc_embed_signup-->
+				
+				
+				
+				<!--  End Mailchimp  -->
+				
+				
+				<div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4" style="border-top: 2px solid #dc3545;">
+				  <span>&copy; Gramalam, LLC. All rights reserved.</span>
+				  <ul class="list-unstyled d-flex">
+					<li class="ms-3"><a class="link-dark text-decoration-none" href="/about.php"><svg class="bi" width="24" height="24"></svg>About</a></li>
+					<li class="ms-3"><a class="link-dark text-decoration-none" href="/about.php#privacy-policy"><svg class="bi" width="24" height="24"></svg>Privacy Policy</a></li>
+					<!-- <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>Contact</li> -->
+				  </ul>
+				</div>
+				
+			</div>
+		</footer>
+		
+
+	
+	
+			
+		
+		
+		
+	</body>
+
+</html>
