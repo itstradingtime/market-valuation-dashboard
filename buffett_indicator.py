@@ -7,10 +7,12 @@
 
 from fredapi import Fred
 import pandas as pd
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # 1) Connect to FRED
-# Easiest for now: paste your API key here (later we can use env vars)
-FRED_API_KEY = "abf78da0eee3c8666bb3ce74ee12fca0"
+FRED_API_KEY = os.getenv("FRED_API_KEY")
 fred = Fred(api_key=FRED_API_KEY)
 
 # 2) Download both series (they come back as pandas Series with a DateTimeIndex)
@@ -30,3 +32,32 @@ df = pd.concat(
 print("Head:\n", df.head())
 print("\nTail:\n", df.tail())
 print("\nNon-null counts:\n", df.notna().sum())
+
+# --- Step 5: Clean & calculate the Buffett Indicator (% of GDP) ---
+
+# Drop rows where one of the two series is missing
+df = df.dropna(subset=['mcap_millions', 'gdp_billions'])
+
+# Sort by date descending so the latest quarter is at the top
+df = df.sort_index(ascending=False)
+
+# Convert everything to billions for consistency
+df['mcap_billions'] = df['mcap_millions'] / 1_000  # millions → billions
+
+# Compute the Buffett Indicator ratio (market cap / GDP)
+df['buffett_ratio'] = df['mcap_billions'] / df['gdp_billions'] * 100  # percent of GDP
+
+# Rename and keep what matters
+df = df[['mcap_billions', 'gdp_billions', 'buffett_ratio']]
+
+# Print sanity checks
+print("\n--- Computed Buffett Indicator ---")
+print(df.head())
+
+latest_value = df['buffett_ratio'].iloc[0]
+print(f"\nLatest Buffett Indicator: {latest_value:.1f}% of GDP")
+
+# Save clean dataset
+df.to_csv('data/buffett_indicator.csv', index_label='date')
+print("\nSaved to data/buffett_indicator.csv")
+
