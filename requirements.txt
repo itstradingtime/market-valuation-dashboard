@@ -3,4 +3,6 @@ pandas
 beautifulsoup4
 lxml
 fredapi
-dotenv
+python-dotenv
+matplotlib
+scipy
