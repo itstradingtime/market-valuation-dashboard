@@ -33,10 +33,6 @@ df = df.sort_values("date", ascending=True)
 print("Cleaned DataFrame preview:")
 print(df.head())
 
-# how info about data types to confirm our conversion worked
-print("\nDataFrame info:")
-df.info()
-
 df.to_csv('data/shiller_pe.csv', index=False)
 
 # Calculating rolling averages. 10 years = 120 months
@@ -48,18 +44,18 @@ df['avg_historical'] = df['shiller_pe'].expanding().mean()
 # Historical median
 df['median_historical'] = df['shiller_pe'].expanding().median()
 
+average_pe = df['avg_historical'].iloc[-1]
 average_pe_10y = df["avg_10y"].iloc[-1]   # last available 10-year rolling average
 average_pe_30y = df["avg_30y"].iloc[-1]   # last available 30-year rolling average
 
 print("\n--- Analysis ---")
-# Get the most recent P/E (the first item in the 'shiller_pe' column)
+# Get the most recent P/E
 current_pe = df['shiller_pe'].iloc[-1]
 
 # Print our finding in a formatted way
 print(f"Current Shiller P/E: {current_pe:.2f}")
 
 # Calculate the average (mean) of the entire history
-average_pe = df['shiller_pe'].mean()
 print(f"Historical Average Shiller P/E: {average_pe:.2f}")
 
 # Calculate the average (mean) of the last 30 years

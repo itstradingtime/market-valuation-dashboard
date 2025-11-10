@@ -4,3 +4,4 @@ beautifulsoup4
 lxml
 fredapi
 python-dotenv
+scipy
