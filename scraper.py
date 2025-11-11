@@ -86,10 +86,10 @@ percentile = stats.percentileofscore(df['shiller_pe'], current_pe)
 
 print(f"\nCurrent Shiller P/E is higher than {percentile:.1f}% of all monthly readings.")
 
-plt.figure(figsize=(10, 5))
-plt.plot(df["date"], df["shiller_pe"], label="Shiller P/E")
+plt.figure(figsize=(10, 5))    # creates a new, blank "figure" or "canvas" for charts, size 10 inches wide and 5 tall
+plt.plot(df["date"], df["shiller_pe"], label="Shiller P/E")    # draws the main line
 
-# Add horizontal lines for our analysis
+# Add lines for our analysis
 plt.plot(df["date"], df["avg_historical"], color='red', linestyle='--', label='Historical Avg')
 plt.plot(df["date"], df["avg_30y"], color='orange', linestyle='--', label='30Y Rolling Avg')
 plt.plot(df["date"], df["avg_10y"], color='purple', linestyle='--', label='10Y Rolling Avg')
@@ -107,8 +107,6 @@ plt.savefig("figures/shiller_pe_history.png", dpi=150)
 
 # --- CHART 2: Zoomed-in view of the last 30 years ---
 
-from datetime import timedelta
-
 # Determine cutoff date (≈30 years ago)
 cutoff_date = df["date"].max() - pd.DateOffset(years=30)
 
@@ -119,6 +117,8 @@ plt.figure(figsize=(10, 5))
 plt.plot(df_recent["date"], df_recent["shiller_pe"], label="Shiller P/E", color="blue")
 plt.plot(df_recent["date"], df_recent["avg_30y"], label="30Y Rolling Avg", color="orange")
 plt.plot(df_recent["date"], df_recent["avg_10y"], label="10Y Rolling Avg", color="purple")
+plt.plot(df_recent["date"], df_recent["avg_historical"], color='red', linestyle='--', label='Historical Avg')
+plt.plot(df_recent["date"], df_recent["median_historical"], color='black', linestyle='--', label='Historical Median')
 
 plt.title("Shiller P/E (CAPE) — Last 30 Years")
 plt.xlabel("Date")
