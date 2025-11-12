@@ -1,8 +1,8 @@
-import requests
 import pandas as pd
-from io import StringIO
-
-URL = "https://www.multpl.com/shiller-pe/table/by-month"
+import os
+from matplotlib import pyplot as plt
+from scipy import stats
+from pathlib import Path
 
 def compare_values(current_value, historical_value, name):
     """Compare a current value to the historical value and returns a formatted string."""
@@ -13,11 +13,15 @@ def compare_values(current_value, historical_value, name):
     else:
         return f"- BELOW its {name}."
 
-resp = requests.get(URL, timeout=20)   # go get the page
-resp.raise_for_status()                # crash if something went wrong
+data_file = Path("data/shiller_cape_series.csv")
+if not data_file.exists():
+    raise FileNotFoundError(
+        f"Cannot find {data_file.as_posix()}.\n"
+        f"Please run 'cape_from_source.py' first to create this file."
+    )
 
-tables = pd.read_html(StringIO(resp.text))       # Use pandas to read the HTML we fetched
-df = tables[0]                         # Get the first table from the list
+print(f"Loading data from {data_file.as_posix()}...")
+df = pd.read_csv(data_file)
 
 
 # Rename the columns to something clean and consistent
