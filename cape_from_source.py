@@ -22,14 +22,9 @@ cape_col = next((c for c in df_raw.columns if str(c).strip().upper().startswith(
 if cape_col is None:
     raise RuntimeError("Could not find a CAPE column in the sheet. Print columns and check.")
 
-cols_to_keep = {
-    "Date": "date",
-    cape_col: "shiller_pe",
-}
-
-
-# 4. Select and rename
-df = df_raw[cols_to_keep.keys()].rename(columns=cols_to_keep)
+cols_to_keep = ["Date", cape_col]
+# create the final dataframe with two columns: date and shiller_pe
+df = df_raw[cols_to_keep].rename(columns={"Date": "date", cape_col: "shiller_pe"})
 
 # 5–6. Robust parse 'YYYY.M' / 'YYYY.MM' → YYYY-mm-01
 parts = df["date"].astype(str).str.split(".", n=1, expand=True)
