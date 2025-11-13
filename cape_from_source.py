@@ -9,19 +9,15 @@ url = (
 src = Path("data/ie_data.xls")
 
 print("Downloading latest Shiller data...")
-resp = requests.get(url)
+resp = requests.get(url, timeout=20)
 resp.raise_for_status()   # This will stop the script if the download fails (e.g., 404 error)
 src.write_bytes(resp.content)
 print(f"Download complete. Saved to: {src.as_posix()}")
 
-# 1. Load the raw data
+# Load the raw data
 df_raw = pd.read_excel(src, sheet_name="Data", header=7, engine="xlrd")
 
-# 2. Let's see all the column names (this time, all 22)
-print("--- All Column Names ---")
-print(list(df_raw.columns))
-
-# 3. Detect the CAPE column robustly (handles CAPE / CAPE.1, etc.)
+# Detect the CAPE column robustly (handles CAPE / CAPE.1, etc.)
 cape_col = next((c for c in df_raw.columns if str(c).strip().upper().startswith("CAPE")), None)
 if cape_col is None:
     raise RuntimeError("Could not find a CAPE column in the sheet. Print columns and check.")
