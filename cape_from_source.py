@@ -1,8 +1,18 @@
 import pandas as pd
 from pathlib import Path
+import requests
 
+url = (
+    "https://img1.wsimg.com/blobby/go/e5e77e0b-59d1-44d9-ab25-4763ac982e53/"
+    "downloads/28fef973-23e2-4ec5-8c38-385f82548e85/ie_data.xls?ver=1762867679270"
+)
 src = Path("data/ie_data.xls")
-print(f"Loading: {src.as_posix()}")
+
+print("Downloading latest Shiller data...")
+resp = requests.get(url)
+resp.raise_for_status()   # This will stop the script if the download fails (e.g., 404 error)
+src.write_bytes(resp.content)
+print(f"Download complete. Saved to: {src.as_posix()}")
 
 # 1. Load the raw data
 df_raw = pd.read_excel(src, sheet_name="Data", header=7, engine="xlrd")
@@ -46,7 +56,7 @@ df["shiller_pe"] = pd.to_numeric(df["shiller_pe"], errors="coerce")
 df = df.dropna(subset=["date", "shiller_pe"])
 df = df.drop_duplicates(subset="date").sort_values("date").reset_index(drop=True)
 
-print("\n--- Final Cleaned Data (Your Simple Way) ---")
+print("\n--- Final Cleaned Data ---")
 print(df.head(3))
 print(df.tail(3))
 
